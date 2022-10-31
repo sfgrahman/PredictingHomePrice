@@ -41,7 +41,7 @@ def load_saved_artifacts():
 def get_location_names():
     with open("columns.json", "r") as f:
         data_columns = json.load(f)['data_columns']
-        locations = __data_columns[3:] 
+        locations = data_columns[3:] 
     return locations
 
 def get_data_columns():
