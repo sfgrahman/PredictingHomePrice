@@ -27,7 +27,7 @@ def load_saved_artifacts():
     global  __data_columns
     global __locations
 
-    with open("columns.json", "rb") as f:
+    with open("columns.json", "r") as f:
         __data_columns = json.load(f)['data_columns']
         __locations = __data_columns[3:]  # first 3 columns are sqft, bath, bhk
         #print(__locations)
@@ -39,7 +39,10 @@ def load_saved_artifacts():
     print("loading saved artifacts...done")
 
 def get_location_names():
-    return __locations
+    with open("columns.json", "r") as f:
+        data_columns = json.load(f)['data_columns']
+        locations = __data_columns[3:] 
+    return locations
 
 def get_data_columns():
     return __data_columns
